@@ -12,7 +12,7 @@ import {
 	Toolbar,
 	Tooltip,
 } from "@mui/material";
-import { useEffect } from "react";
+import { lazy, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useUserPresence } from "../../hooks/useUserPresence";
@@ -21,7 +21,8 @@ import { selectWorkspace } from "../../store/workspaceSlice";
 import DownloadMenu from "../common/DownloadMenu";
 import ShareButton from "../common/ShareButton";
 import ThemeButton from "../common/ThemeButton";
-import UserPresenceList from "./UserPresenceList";
+
+const UserPresenceList = lazy(() => import("./UserPresenceList"));
 
 function DocumentHeader() {
 	const dispatch = useDispatch();
